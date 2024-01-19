@@ -102,11 +102,11 @@ resource "aws_route_table_association" "MyLab-association" {
 resource "aws_instance" "Jenkins" {
   ami           =  var.ami
   instance_type = var.instance_type
-  key_name = "mylab-demo"
+#  key_name = "mylab-demo"
   vpc_security_group_ids = [aws_security_group.MyLab-Sec-Group.id]
   subnet_id = aws_subnet.MyLab-subnet1.id
   associate_public_ip_address = true
-  user_data = file("./installjenkins.sh")
+ # user_data = file("./installjenkins.sh")
 
 
   tags = {
@@ -118,11 +118,11 @@ resource "aws_instance" "Jenkins" {
 resource "aws_instance" "Ansible-ControlNode" {
   ami           =  var.ami
   instance_type = var.instance_type
-  key_name = "mylab-demo"
+  #key_name = "mylab-demo"
   vpc_security_group_ids = [aws_security_group.MyLab-Sec-Group.id]
   subnet_id = aws_subnet.MyLab-subnet1.id
   associate_public_ip_address = true
-  user_data = file("./InstallAnsibleCN.sh")
+  #user_data = file("./InstallAnsibleCN.sh")
 
 
   tags = {
@@ -134,11 +134,11 @@ resource "aws_instance" "Ansible-ControlNode" {
 resource "aws_instance" "Ansible-ManagedNode" {
   ami           =  var.ami
   instance_type = var.instance_type
-  key_name = "mylab-demo"
+  #key_name = "mylab-demo"
   vpc_security_group_ids = [aws_security_group.MyLab-Sec-Group.id]
   subnet_id = aws_subnet.MyLab-subnet1.id
   associate_public_ip_address = true
-  user_data = file("./AnsibleManagedNode.sh")
+  #user_data = file("./AnsibleManagedNode.sh")
 
 
   tags = {
@@ -150,11 +150,11 @@ resource "aws_instance" "Ansible-ManagedNode" {
 resource "aws_instance" "Docker-host" {
   ami           =  var.ami
   instance_type = var.instance_type
-  key_name = "mylab-demo"
+  #key_name = "mylab-demo"
   vpc_security_group_ids = [aws_security_group.MyLab-Sec-Group.id]
   subnet_id = aws_subnet.MyLab-subnet1.id
   associate_public_ip_address = true
-  user_data = file("./Docker.sh")
+  #user_data = file("./Docker.sh")
 
 
   tags = {
@@ -166,11 +166,11 @@ resource "aws_instance" "Docker-host" {
 resource "aws_instance" "Nexus" {
   ami           =  var.ami
   instance_type = var.instance_type_for_nexus
-  key_name = "mylab-demo"
+  #key_name = "mylab-demo"
   vpc_security_group_ids = [aws_security_group.MyLab-Sec-Group.id]
   subnet_id = aws_subnet.MyLab-subnet1.id
   associate_public_ip_address = true
-  user_data = file("./InstallNexus.sh")
+  #user_data = file("./InstallNexus.sh")
 
 
   tags = {
